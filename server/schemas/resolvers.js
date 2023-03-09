@@ -13,8 +13,8 @@ const resolvers = {
         }
     },
     Mutation: {
-        loginUser: async (parent, { username, password }) => {
-            const user = User.findOne({ $or: [{ username: username }, { email: email }] });
+        loginUser: async (parent, { email, password }) => {
+            const user = User.findOne( { email: email } );
             if (!user) {
                 throw new AuthenticationError('No profile with this email found!');
             }
@@ -25,10 +25,11 @@ const resolvers = {
             const token = signToken(user);
             return ({ token, user });
         },
-        addUser: async (parent, { username, email }) => {
+        addUser: async (parent, { username, email, password }) => {
             const user = await User.create({
                 username,
-                email
+                email,
+                password,
             })
             const token = signToken(user);
             return { token, user };
@@ -47,18 +48,16 @@ const resolvers = {
             );
             return book;
         },
-        removeBook: async (parent, { userId, bookId }) => {
-            const book = await Book.findOneAndDelete({
+        removeBook: async (parent, {bookId, userId}) => {
+            await Book.findOneAndDelete({
                 _id: bookId,
-                description: context.user.description,
-                // title: context.title,
             })
-            await User.findOneAndUpdate(
+            const user = await User.findOneAndUpdate(
                 { _id: userId },
                 { $pull: { savedBooks: { bookId: bookId } } },
                 { new: true }
             );
-            return book
+            return user;
         },
     }
 }
