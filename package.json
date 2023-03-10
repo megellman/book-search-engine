@@ -14,5 +14,9 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.0",
+    "micro-cors": "^0.1.1"
   }
 }

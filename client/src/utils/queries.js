@@ -8,7 +8,7 @@ query me {
         email
         bookCount
         savedBooks {
-            _id
+            bookId
             authors
             description
             title
