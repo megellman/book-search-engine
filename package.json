@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "jsonwebtoken": "^9.0.0",
+    "concurrently": "^5.2.0",
     "micro-cors": "^0.1.1"
   }
 }
