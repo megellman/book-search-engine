@@ -14,43 +14,19 @@
     
 ## Description
 
-[Visit the Deployed Site](https://megellman.github.io/react-portfolio/)
+[Visit the Deployed Site](https://book-search-engine122.herokuapp.com/)
     
-This project is my professional portfolio. It contains an about me section, links to my work, a contact form, and a downloadable resume. 
-
-I created this project using React, Bootstrap, and JavaScript. One motivation for creating this project was to get more experience working with React. Another was to create a portfolio that could easily be updated as I build out my projects section. 
+This project is a book search enginer. Users can signup, login, search up books and save them as well. 
 
 ## Table of Contents
-* [Code Example](#code-example)
 * [Usage](#usage)
 * [Author Info](#author-info)
 * [Credits](#credits)
 * [License](#license)
-
-```
-{projects.map(item => (
-                <div className="col">
-                    <div className="card" style={{ width: '30rem' }} key={item.id}>
-                        <a href={item.deployedLink} >
-                            <img src={item.image} style={{ width: '30rem', height: '15rem' }} className="card-img-top img-fluid" alt="..." />
-                        </a>
-                            <div className="card-body">
-                                <h5 className="card-title">{item.name}</h5>
-                                <p className="card-text">{item.description}</p>
-                                <a href={item.repoLink} className="btn btn-primary">GitHub Repository</a>
-                            </div>
-                    </div>
-                </div>
-
-            ))}
-```
-
-## Code Example
-To render each project card, I created an array of objects for each project. Within each object is a title, description, image source, and links to deployed and GitHub repository. Instead of rendering each individual page, I passed the array into this component as a prop and mapped the array. Each array item will be created with these card design specifications. This code makes it incredibly easy to add new projects to this application.  
   
 ## Usage
   
-This project can be used as a professional portfolio.
+This project can be used as a search engine for books.
 
 
 ## Author Info
